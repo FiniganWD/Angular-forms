@@ -1,0 +1,47 @@
+
+<h2 class="mb-3">Template driven form</h2>
+
+<div class="row">
+  <div class="col">
+    <form (ngSubmit)="submit()" #form="ngForm">
+      <div ngModelGroup="heroInfo" #heroGroup="ngModelGroup">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" [ngModel]="heroForm.nome" name="nome" class="form-control" required #nome="ngModel">
+          <p class="text-danger" *ngIf="nome.invalid && nome.touched">Questo campo è obbligatorio</p>
+        </div>
+        <div class="form-group mt-3">
+          <label for="alterEgo">Alter Ego</label>
+          <input type="text" id="alterEgo" [ngModel]="heroForm.alterEgo" name="alterEgo" class="form-control" required #alterEgo="ngModel">
+          <p class="text-danger" *ngIf="alterEgo.invalid && alterEgo.touched">Questo campo è obbligatorio</p>
+        </div>
+        <div class="form-group mt-3">
+          <label for="poteri">Super Potere:</label>
+          <select name="porteri" id="poteri" class="form-select" [ngModel]="heroForm.poteri">
+            <option selected>Sleziona Potere</option>
+            <option value="terra">Terra</option>
+            <option value="acqua">Acqua</option>
+            <option value="fuoco">Fuoco</option>
+          </select>
+        </div>
+        <div class="form-group mt-3">
+          <label for="nemico">Nemico</label>
+          <input type="text" id="alterEgo" [ngModel]="heroForm.nemico" name="nemico" class="form-control" required #nemico="ngModel">
+        </div>
+        <div class="form-group mt-3">
+          <label for="pianeta">Pianeta</label>
+          <input type="text" id="pianeta" [ngModel]="heroForm.pianeta" name="pianeta" class="form-control" required #pianeta="ngModel">
+
+          <p class="text-danger" *ngIf="alterEgo.invalid && alterEgo.touched">Questo campo è obbligatorio</p>
+
+        </div>
+        <div class="form-group mt-3">
+          <label for="debolezza">Debolezza</label>
+          <input type="text" id="debolezza" [ngModel]="heroForm.debolezza" name="debolezza" class="form-control">
+        </div>
+      </div>
+      <button type="submit" (click)="submit()" class="btn btn-primary mt-4 w-100">Crea</button>
+    </form>
+  </div>
+</div>
+<hr class="my-5">
